@@ -1,0 +1,10 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+yes:
+  command_start: "yes"
+  command_stop: killall yes
+  command_restart: killall yes;yes
+  name: "Yes"
+  command_status: ps ax | grep yes | grep -v "grep yes"
+  slug: "yes"
+
