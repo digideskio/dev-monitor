@@ -8,5 +8,6 @@ class BorisController < ActionController::Base
   def create
   	boris = Boris.new(params[:boris].permit(:name))
   	boris.save!
+  	redirect_to "/"
   end
 end
