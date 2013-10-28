@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131025131933) do
+ActiveRecord::Schema.define(version: 20131028224221) do
 
   create_table "boris", force: true do |t|
     t.string   "command_start"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20131025131933) do
     t.datetime "updated_at"
     t.string   "slug"
     t.integer  "pid"
+    t.string   "pid_file"
   end
 
 end

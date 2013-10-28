@@ -1,5 +1,5 @@
-- columns = ["name", "command_start", "status"]
-%table
+- columns = ["name", "command_start", "status", "action"]
+%table.boris_table
   %tr
     - columns.each do |c|
       %th
@@ -7,4 +7,6 @@
   = render partial: "row", collection: Boris.all, as: :boris, locals: { columns: columns }
 
 = simple_form_for @new_boris do |f|
-  = f.text_field :name
+  = f.text_field :name, placeholder: "Name"
+  = f.text_field :command_start, placeholder: "Command"
+  = f.submit
