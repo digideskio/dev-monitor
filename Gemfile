@@ -33,9 +33,9 @@ group :doc do
 end
 
 group :development do
+  gem 'thin'
   gem "binding_of_caller"
   gem 'better_errors'
-  gem 'thin'
 end
 
 # Use ActiveModel has_secure_password

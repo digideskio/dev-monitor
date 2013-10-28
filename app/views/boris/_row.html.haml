@@ -1,0 +1,4 @@
+%tr
+  - columns.each do |c|
+    %td
+      = render partial: "boris/columns/#{c}", locals: {boris: boris}
