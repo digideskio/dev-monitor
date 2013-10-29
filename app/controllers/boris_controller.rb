@@ -6,7 +6,7 @@ class BorisController < ApplicationController
   end
 
   def create
-  	boris = Boris.new(params[:boris].permit(:name, :command_start))
+  	boris = Boris.new(params[:boris].permit(:name, :command_start, :pid_file))
   	boris.save!
   	redirect_to "/"
   end
