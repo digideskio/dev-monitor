@@ -14,15 +14,23 @@ class Boris < ActiveRecord::Base
 	end
 
 	def status
-		if pid_file.present?
-			get_pid.present?
-		else
-			begin
-				Process.kill 0, get_pid
-				true
-			rescue
-				false
+		begin
+			_pid = get_pid
+			if _pid.nil?
+				_pid = -100
+			else
+				_pid = _pid.to_i
 			end
+			Process.kill 0, _pid
+			true
+		rescue Exception => e
+			if pid_file.present?
+				puts "Cleaning up old pid file #{pid_file} if exists"
+				`rm #{pid_file}` rescue nil
+				pid = nil
+				save!
+			end
+			false
 		end
 	end
 
